@@ -1,7 +1,7 @@
 # Energy Manager
 
 ## Description:
-This is the front end portion of an energy management app for landlords or property managers. Once logged in to the app, users can see a list of their properties (or a list of individual units in one property) and their related units' energy consumption amounts, price, discount status and total price. Users are authenticated with JWT 
+This is the front end portion of an energy management app designed for landlords or property owners. Once logged in to the app, users can see a list of their properties (or a list of units in a property) and their related units' energy consumption amounts, price, discount status and total price. Users are authenticated with JWT 
 (JSON Web Tokens).
 
 ## Installation Instructions:
