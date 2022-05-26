@@ -53,7 +53,7 @@ body {
   background-color: var(--primary);
 }
 #app {
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   color: #fff;
 }
 </style>

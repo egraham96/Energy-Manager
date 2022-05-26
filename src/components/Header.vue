@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-sm navbar-dark">
     <div class="w-100 d-flex nav-container">
       <div class="logo" @click="navigate">
-        <img src="../assets/logo.png" alt="Logo" />
+        <img src="../assets/energy-manager.png" alt="Energy Manager Logo" />
       </div>
       <ul class="m-0 ms-auto d-flex align-items-center justify-content-evenly">
         <div v-if="user" @click="goDashboard" class="dashboard-icon">
@@ -14,10 +14,6 @@
           </svg>
         </div>
         <UserModal class="ms-4 d-flex align-items-center" v-if="user" />
-        <select class="ms-4" name="language" id="language">
-          <option value="en">en</option>
-          <option value="tr">tr</option>
-        </select>
       </ul>
     </div>
   </nav>
@@ -61,6 +57,14 @@ export default {
 .logo {
   cursor: pointer;
 }
+
+.logo img {
+  position: fixed;
+  top: 10px;
+  left: 0px;
+  height: 35px;
+}
+
 #language {
   height: 25px;
   width: max-content;
