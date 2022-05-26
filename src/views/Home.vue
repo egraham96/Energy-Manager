@@ -2,11 +2,13 @@
   <div class="home">
     <div class="home-text">
       <h1>
-        Take control of your energy with <span class="brand">Electrica</span>
+        Take control of your energy with
+        <span class="brand">Energy Manager</span>
       </h1>
       <p>
-        Monitor your energy usage with our smart platform and make data-driven
-        decisions.
+        Monitor energy usage in <b>all</b> of your properties or units with our
+        smart platform. Make data-driven decisions that save you money
+        <b>and</b> save the planet.
       </p>
       <div class="btn-container">
         <router-link class="btn btn-login" :to="{ name: 'Login' }"
@@ -17,7 +19,13 @@
         >
       </div>
     </div>
-    <img class="home-image" src="../assets/landing.png" alt="land" />
+    <div class="image-box">
+      <img
+        class="home-image"
+        src="../assets/homepage-image.png"
+        alt="Homepage Image"
+      />
+    </div>
   </div>
 </template>
 
@@ -71,18 +79,49 @@ p {
   transition: 0.5s;
 }
 .btn-register {
+  background-image: linear-gradient(
+    to right bottom,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );
+}
+.btn-login {
   background-color: var(--secondary);
 }
+
 .btn-login:hover {
+  background-image: linear-gradient(
+    to right bottom,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );
+}
+
+.btn-register:hover {
+  background-image: none;
   background-color: var(--secondary);
 }
-.btn-register:hover {
-  background-color: var(--primary);
+
+.image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid white;
+  border-radius: 50%;
 }
+
 .home-image {
   width: 100%;
   height: auto;
   grid-column-start: 2;
+  margin: 0 auto;
+  padding: 0;
 }
 
 @media screen and (max-width: 730px) {
