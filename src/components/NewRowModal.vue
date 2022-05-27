@@ -55,9 +55,9 @@ export default {
   methods: {
     ...mapMutations(["SET_MODAL"]),
     ...mapActions([
-      "createNewFactory",
+      "createNewProperty",
       "createNewUnit",
-      "editFactoryData",
+      "editPropertyData",
       "editUnitData",
     ]),
     setInputType(val) {
@@ -70,8 +70,8 @@ export default {
         : "checkbox";
     },
     createNewData() {
-      if (this.modal.name === "factories") {
-        this.createNewFactory(this.newRow);
+      if (this.modal.name === "properties") {
+        this.createNewProperty(this.newRow);
       } else {
         this.createNewUnit(this.newRow);
       }
@@ -83,8 +83,8 @@ export default {
       });
     },
     editData() {
-      if (this.modal.name === "factories") {
-        this.editFactoryData(this.newRow);
+      if (this.modal.name === "properties") {
+        this.editPropertyData(this.newRow);
       } else {
         this.editUnitData(this.newRow);
       }
@@ -97,7 +97,7 @@ export default {
     },
   },
   created() {
-    if (this.modal.values && this.modal.name === "factories") {
+    if (this.modal.values && this.modal.name === "properties") {
       const tempObject = { ...this.modal.values };
       tempObject.membership_start = new Date(tempObject.membership_start);
       tempObject.membership_start.setDate(

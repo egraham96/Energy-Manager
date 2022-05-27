@@ -1,13 +1,13 @@
 <template>
   <div v-if="user" class="dashboard">
     <div
-      v-if="factories && factories.length > 0 && factoryDataType"
-      class="factory-table-container"
+      v-if="properties && properties.length > 0 && propertyDataType"
+      class="property-table-container"
     >
-      <h3 class="text-center">Factories</h3>
+      <h3 class="text-center">Properties</h3>
       <button
         v-if="user.role === 'admin'"
-        @click="openNewColumnModal('factories')"
+        @click="openNewColumnModal('properties')"
         class="btn btn-primary d-block ms-auto"
       >
         Add New Column
@@ -17,13 +17,13 @@
           <tr>
             <th
               scope="col"
-              v-for="(key, index) in factoryColumnNames"
+              v-for="(key, index) in propertyColumnNames"
               :key="index"
             >
               {{ key | convertTableHeading }}
               <span v-if="user.role === 'admin' && key !== 'id'">
                 <svg
-                  @click="deleteFactoryColumn(key)"
+                  @click="deletepropertyColumn(key)"
                   class="delete-icon-column ms-3"
                   width="20"
                   height="20"
@@ -40,15 +40,15 @@
         </thead>
         <tbody>
           <tr
-            v-for="factory in factories"
-            :key="factory.id"
-            @click="getFactoryUnits(factory.id)"
+            v-for="property in properties"
+            :key="property.id"
+            @click="getPropertyUnits(property.id)"
           >
-            <td v-for="(item, index) in factory" :key="index">{{ item }}</td>
+            <td v-for="(item, index) in property" :key="index">{{ item }}</td>
             <td class="icon-container" v-if="user.role === 'admin'">
               <span
                 ><svg
-                  @click="editData(factoryDataType, 'factories', factory)"
+                  @click="editData(propertyDataType, 'properties', property)"
                   class="edit-icon"
                   width="20"
                   height="20"
@@ -65,7 +65,7 @@
               ></span>
               <span>
                 <svg
-                  @click="deleteFactoryById(factory.id)"
+                  @click="deletePropertyById(property.id)"
                   class="delete-icon ms-3"
                   width="20"
                   height="20"
@@ -83,7 +83,7 @@
       </table>
       <div
         v-if="user.role === 'admin'"
-        @click="addNewData(factoryDataType, 'factories')"
+        @click="addNewData(propertyDataType, 'properties')"
         class="add-data-btn"
       >
         Add New Data
@@ -111,7 +111,7 @@
                 v-if="
                   user.role === 'admin' &&
                   key !== 'unit_id' &&
-                  key !== 'factory_id'
+                  key !== 'property_id'
                 "
               >
                 <svg
@@ -158,7 +158,7 @@
                   @click="
                     deleteUnitById({
                       unit_id: unit.unit_id,
-                      factory_id: unit.factory_id,
+                      property_id: unit.property_id,
                     })
                   "
                   class="delete-icon ms-3"
@@ -195,13 +195,13 @@ export default {
   computed: {
     ...mapState([
       "user",
-      "factories",
+      "properties",
       "units",
       "unitDataType",
-      "factoryDataType",
+      "propertyDataType",
     ]),
-    factoryColumnNames() {
-      let newArr = [...this.factoryDataType];
+    propertyColumnNames() {
+      let newArr = [...this.propertyDataType];
       newArr.sort((a, b) => a.ordinal_position - b.ordinal_position);
       let result = newArr.map((item) => item.column_name);
       return result;
@@ -216,13 +216,13 @@ export default {
   methods: {
     ...mapMutations(["SET_MODAL", "SET_COLUMN_MODAL"]),
     ...mapActions([
-      "getFactoryDataType",
+      "getPropertyDataType",
       "getUnitDataType",
-      "getAllFactories",
-      "getFactoryUnits",
-      "deleteFactoryById",
+      "getAllProperties",
+      "getPropertyUnits",
+      "deletePropertyById",
       "deleteUnitById",
-      "deleteFactoryColumn",
+      "deletePropertyColumn",
       "deleteUnitColumn",
     ]),
     addNewData(data, name) {
@@ -268,8 +268,8 @@ export default {
     },
   },
   created() {
-    this.getAllFactories();
-    this.getFactoryDataType();
+    this.getAllProperties();
+    this.getPropertyDataType();
     this.getUnitDataType();
   },
 };
@@ -283,7 +283,7 @@ export default {
   flex-direction: column;
   gap: 30px;
 }
-.factory-table-container,
+.property-table-container,
 .unit-table-container {
   overflow-x: scroll;
 }
@@ -291,11 +291,11 @@ export default {
   background-color: var(--primary);
   color: white;
 }
-.factory-table-container tbody tr {
+.property-table-container tbody tr {
   cursor: pointer;
 }
 
-.factory-table-container tbody tr:hover {
+.property-table-container tbody tr:hover {
   background-color: var(--light);
 }
 

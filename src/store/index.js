@@ -8,9 +8,9 @@ export default new Vuex.Store({
   state: {
     user: null,
     remember: false,
-    factories: null,
+    properties: null,
     units: null,
-    factoryDataType: null,
+    propertyDataType: null,
     unitDataType: null,
     modal: {
       isOpen: false,
@@ -34,14 +34,14 @@ export default new Vuex.Store({
     SET_REMEMBER(state, payload) {
       state.remember = payload;
     },
-    SET_FACTORIES(state, payload) {
-      state.factories = payload;
+    SET_PROPERTIES(state, payload) {
+      state.properties = payload;
     },
     SET_UNITS(state, payload) {
       state.units = payload;
     },
-    SET_FACTORY_DATA_TYPE(state, payload) {
-      state.factoryDataType = payload;
+    SET_PROPERTY_DATA_TYPE(state, payload) {
+      state.propertyDataType = payload;
     },
     SET_UNIT_DATA_TYPE(state, payload) {
       state.unitDataType = payload;
@@ -99,11 +99,11 @@ export default new Vuex.Store({
           return Promise.reject(err.response.status);
         });
     },
-    getFactoryDataType(context) {
+    getPropertyDataType(context) {
       httpClient
-        .get("/factories/type")
+        .get("/properties/type")
         .then((res) => {
-          context.commit("SET_FACTORY_DATA_TYPE", res.data);
+          context.commit("SET_PROPERTY_DATA_TYPE", res.data);
         })
         .catch((err) => console.log(err));
     },
@@ -115,11 +115,11 @@ export default new Vuex.Store({
         })
         .catch((err) => console.log(err));
     },
-    createNewFactory(context, payload) {
+    createNewProperty(context, payload) {
       httpClient
-        .post("/factories", payload)
+        .post("/properties", payload)
         .then(() => {
-          context.dispatch("getAllFactories");
+          context.dispatch("getAllProperties");
         })
         .catch((err) => console.log(err));
     },
@@ -127,13 +127,13 @@ export default new Vuex.Store({
       httpClient
         .post("/units", payload)
         .then(() => {
-          context.dispatch("getFactoryUnits", payload.factory_id);
+          context.dispatch("getPropertyUnits", payload.property_id);
         })
         .catch((err) => console.log(err));
     },
-    getAllFactories(context) {
+    getAllProperties(context) {
       httpClient
-        .get("/factories")
+        .get("/properties")
         .then((res) => {
           let data = res.data.map((item) => {
             item.membership_start = new Date(
@@ -144,28 +144,28 @@ export default new Vuex.Store({
             ).toLocaleDateString();
             return item;
           });
-          context.commit("SET_FACTORIES", data);
+          context.commit("SET_PROPERTIES", data);
         })
         .catch((err) => console.log(err));
     },
-    deleteFactoryById(context, payload) {
+    deletePropertyById(context, payload) {
       httpClient
-        .delete(`/factories/${payload}`)
+        .delete(`/properties/${payload}`)
         .then(() => {
-          context.dispatch("getAllFactories");
-          context.dispatch("deleteUnitsByFactoryId", payload);
+          context.dispatch("getAllProperties");
+          context.dispatch("deleteUnitsByPropertyId", payload);
         })
         .catch((err) => console.log(err));
     },
-    editFactoryData(context, payload) {
+    editPropertyData(context, payload) {
       httpClient
-        .put(`/factories/${payload.id}`, payload)
+        .put(`/properties/${payload.id}`, payload)
         .then(() => {
-          context.dispatch("getAllFactories");
+          context.dispatch("getAllProperties");
         })
         .catch((err) => console.log(err));
     },
-    getFactoryUnits(context, payload) {
+    getPropertyUnits(context, payload) {
       httpClient
         .get(`/units/${payload}`)
         .then((res) => {
@@ -177,11 +177,11 @@ export default new Vuex.Store({
       httpClient
         .delete(`/units/${payload.unit_id}`)
         .then(() => {
-          context.dispatch("getFactoryUnits", payload.factory_id);
+          context.dispatch("getPropertyUnits", payload.property_id);
         })
         .catch((err) => console.log(err));
     },
-    deleteUnitsByFactoryId(context, payload) {
+    deleteUnitsByPropertyId(context, payload) {
       httpClient
         .delete(`/units/all/${payload}`)
         .then((res) => {
@@ -193,16 +193,16 @@ export default new Vuex.Store({
       httpClient
         .put(`/units/${payload.unit_id}`, payload)
         .then(() => {
-          context.dispatch("getFactoryUnits", payload.factory_id);
+          context.dispatch("getPropertyUnits", payload.property_id);
         })
         .catch((err) => console.log(err));
     },
-    deleteFactoryColumn(context, payload) {
+    deletePropertyColumn(context, payload) {
       httpClient
-        .delete(`/factories/column/delete/${payload}`)
+        .delete(`/properties/column/delete/${payload}`)
         .then(() => {
-          context.dispatch("getFactoryDataType");
-          context.dispatch("getAllFactories");
+          context.dispatch("getPropertyDataType");
+          context.dispatch("getAllProperties");
         })
         .catch((err) => console.log(err));
     },
@@ -212,8 +212,8 @@ export default new Vuex.Store({
         .then(() => {
           context.dispatch("getUnitDataType");
           context.dispatch(
-            "getFactoryUnits",
-            context.state.units[0].factory_id
+            "getPropertyUnits",
+            context.state.units[0].property_id
           );
         })
         .catch((err) => console.log(err));
@@ -222,14 +222,14 @@ export default new Vuex.Store({
       return httpClient
         .post(`/${context.state.columnModal.table}/column/new`, payload)
         .then(() => {
-          if (context.state.columnModal.table === "factories") {
-            context.dispatch("getFactoryDataType");
-            context.dispatch("getAllFactories");
+          if (context.state.columnModal.table === "properties") {
+            context.dispatch("getPropertyDataType");
+            context.dispatch("getAllProperties");
           } else {
             context.dispatch("getUnitDataType");
             context.dispatch(
-              "getFactoryUnits",
-              context.state.units[0].factory_id
+              "getPropertyUnits",
+              context.state.units[0].property_id
             );
           }
         })
