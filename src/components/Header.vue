@@ -62,7 +62,7 @@ export default {
   position: fixed;
   top: 10px;
   left: 0px;
-  height: 35px;
+  height: 50px;
 }
 
 #language {

@@ -26,7 +26,7 @@
         alt="Homepage Image"
       />
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -39,10 +39,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .home {
-  height: 90vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 50px;
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding-inline: 5vw;
 }
@@ -58,7 +58,7 @@ p {
   color: var(--secondary);
 }
 .home-text {
-  height: 70%;
+  height: 35%;
   grid-column-start: 1;
   display: flex;
   flex-direction: column;
@@ -72,11 +72,14 @@ p {
 }
 .btn {
   color: white;
-  padding: 15px 30px;
+  height: 40px;
+  width: 120px;
+  /*padding: 15px 30px;*/
   border: 1px solid var(--secondary);
   border-radius: 50px;
   font-weight: 600;
   transition: 0.5s;
+  text-align: center;
 }
 .btn-register {
   background-image: linear-gradient(
@@ -109,16 +112,19 @@ p {
 }
 
 .image-box {
+  height: 300px;
+  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 3px solid white;
   border-radius: 50%;
+  padding: 0px;
 }
 
 .home-image {
-  width: 100%;
-  height: auto;
+  height: 350px;
+  width: 350px;
   grid-column-start: 2;
   margin: 0 auto;
   padding: 0;

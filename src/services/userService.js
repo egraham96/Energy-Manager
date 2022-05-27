@@ -2,8 +2,8 @@ import httpClient from "./httpClient";
 import authHeader from "./authHeader";
 
 class UserService {
-  getFactoryData() {
-    return httpClient.get("/factories", { headers: authHeader() });
+  getPropertyData() {
+    return httpClient.get("/properties", { headers: authHeader() });
   }
 
   getUnitData() {
