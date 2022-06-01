@@ -37,8 +37,6 @@ npm run lint
 
 ## Preview of Working Site:
 ![Screenshot of Deployed Application](./public/images/ScreenshotofDeployedApplication.PNG)
-![Screenshot of Deployed Application](./public/images/ScreenshotofDeployedApplication2.PNG)
-![Screenshot of Deployed Application](./public/images/ScreenshotofDeployedApplication3.PNG)
 
 ## How to Contribute:
 If you'd like to contribute to this project please send an email to eeg4@uw.edu.
