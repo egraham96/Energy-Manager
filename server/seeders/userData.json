@@ -1,0 +1,34 @@
+[
+  {
+    "first_name":"Erica",
+    "last_name": "Brown",
+    "role": "Property Manager",
+    "email": "erica.brown@aol.com",
+    "password": "test123"
+
+  },
+  {
+    "first_name":"Todd",
+    "last_name": "Craines",
+    "role": "Property Owner",
+    "email": "todd.craines@hotmail.com",
+    "password": "test456"
+
+  },
+  {
+    "first_name":"Emma",
+    "last_name": "Graham",
+    "role": "Property Manager",
+    "email": "emma.graham@hotmail.com",
+    "password": "test789"
+
+  },
+  {
+    "first_name":"Jonathan",
+    "last_name": "Howard",
+    "role": "Property Manager",
+    "email": "jon.howard@nwrealty.com",
+    "password": "test101112"
+
+  }
+]
