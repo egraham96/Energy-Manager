@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 //const path = require('path');
 require("dotenv").config();
+const routes = require("./routes/index");
 
 const PORT = process.env.PORT || 3020;
 
@@ -10,7 +11,6 @@ const server = express();
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
-server.use(express.static("public"));
 
 mongoose.connect = async () => {
   try {
@@ -27,7 +27,7 @@ mongoose.connect = async () => {
 };
 
 //API Routes
-server.use(require("./routes/index.js"));
+server.use("/", routes);
 
 server.listen(PORT, () =>
   console.log(`Server listening at http://localhost:${PORT} 🚀`)

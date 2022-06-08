@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('../models');
+//const db = require('../models');
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -7,3 +7,5 @@ mongoose.connect(process.env.MONGODB_URI, {
   useFindAndModify: false,
   useUnifiedTopology: true,
 });
+
+
