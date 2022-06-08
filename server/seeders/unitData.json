@@ -1,12 +1,6 @@
 [
     { 
-      "name": "Amazon", 
-      "description": "Amazon.com, Inc. is an American multinational technology company which focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. ",
-      "size": 1100000,
-      "HRManager": "Marty Chatfield",
-      "HRManagerEmail": "marty.chatfield@amazon.com",
-      "HRManagerPassword": "test123",
-      "PricingPlan": "Yearly Plan"
+      
     }, 
     {   
         "name": "Twitter", 
