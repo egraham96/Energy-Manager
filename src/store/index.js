@@ -10,8 +10,6 @@ export default new Vuex.Store({
     remember: false,
     properties: null,
     units: null,
-    propertyDataType: null,
-    unitDataType: null,
     modal: {
       isOpen: false,
       data: null,
@@ -39,12 +37,6 @@ export default new Vuex.Store({
     },
     SET_UNITS(state, payload) {
       state.units = payload;
-    },
-    SET_PROPERTY_DATA_TYPE(state, payload) {
-      state.propertyDataType = payload;
-    },
-    SET_UNIT_DATA_TYPE(state, payload) {
-      state.unitDataType = payload;
     },
     SET_MODAL(state, payload) {
       state.modal = { ...payload };
@@ -99,22 +91,6 @@ export default new Vuex.Store({
           return Promise.reject(err.response.status);
         });
     },
-    getPropertyDataType(context) {
-      httpClient
-        .get("/properties/type")
-        .then((res) => {
-          context.commit("SET_PROPERTY_DATA_TYPE", res.data);
-        })
-        .catch((err) => console.log(err));
-    },
-    getUnitDataType(context) {
-      httpClient
-        .get("/units/data/type")
-        .then((res) => {
-          context.commit("SET_UNIT_DATA_TYPE", res.data);
-        })
-        .catch((err) => console.log(err));
-    },
     createNewProperty(context, payload) {
       httpClient
         .post("/properties", payload)
@@ -127,47 +103,38 @@ export default new Vuex.Store({
       httpClient
         .post("/units", payload)
         .then(() => {
-          context.dispatch("getPropertyUnits", payload.property_id);
+          context.dispatch("getPropertyById", payload.property_id);
         })
         .catch((err) => console.log(err));
     },
     getAllProperties(context) {
       httpClient
         .get("/properties")
-        .then((res) => {
-          let data = res.data.map((item) => {
-            item.membership_start = new Date(
-              item.membership_start
-            ).toLocaleDateString();
-            item.membership_end = new Date(
-              item.membership_end
-            ).toLocaleDateString();
-            return item;
-          });
+        .then((data) => {
           context.commit("SET_PROPERTIES", data);
         })
         .catch((err) => console.log(err));
     },
     deletePropertyById(context, payload) {
       httpClient
-        .delete(`/properties/${payload}`)
+        .delete(`/properties/${payload.property_id}`)
         .then(() => {
           context.dispatch("getAllProperties");
           context.dispatch("deleteUnitsByPropertyId", payload);
         })
         .catch((err) => console.log(err));
     },
-    editPropertyData(context, payload) {
+    /*editPropertyData(context, payload) {
       httpClient
         .put(`/properties/${payload.id}`, payload)
         .then(() => {
           context.dispatch("getAllProperties");
         })
         .catch((err) => console.log(err));
-    },
-    getPropertyUnits(context, payload) {
+    },*/
+    getPropertyById(context, payload) {
       httpClient
-        .get(`/units/${payload}`)
+        .get(`/properties/${payload.property_id}`)
         .then((res) => {
           context.commit("SET_UNITS", res.data);
         })
@@ -189,7 +156,7 @@ export default new Vuex.Store({
         })
         .catch((err) => console.log(err));
     },
-    editUnitData(context, payload) {
+    /*editUnitData(context, payload) {
       httpClient
         .put(`/units/${payload.unit_id}`, payload)
         .then(() => {
@@ -217,7 +184,7 @@ export default new Vuex.Store({
           );
         })
         .catch((err) => console.log(err));
-    },
+    },*/
     createNewColumn(context, payload) {
       return httpClient
         .post(`/${context.state.columnModal.table}/column/new`, payload)

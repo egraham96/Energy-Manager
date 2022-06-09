@@ -57,8 +57,6 @@ export default {
     ...mapActions([
       "createNewProperty",
       "createNewUnit",
-      "editPropertyData",
-      "editUnitData",
     ]),
     setInputType(val) {
       return val === "text"
@@ -82,7 +80,7 @@ export default {
         values: null,
       });
     },
-    editData() {
+    /*editData() {
       if (this.modal.name === "properties") {
         this.editPropertyData(this.newRow);
       } else {
@@ -94,7 +92,7 @@ export default {
         name: null,
         values: null,
       });
-    },
+    },*/
   },
   created() {
     if (this.modal.values && this.modal.name === "properties") {
