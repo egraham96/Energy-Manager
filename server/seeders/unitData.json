@@ -1,73 +1,45 @@
 [
-    { 
-      
-    }, 
-    {   
-        "name": "Twitter", 
-        "description": "Twitter, Inc. is an American communications company based in San Francisco, California. The company operates the microblogging and social networking service Twitter.",
-        "size": 75000,
-        "HRManager": "Jennifer Christie",
-        "HRManagerEmail": "jennifer.christie@twitter.com",
-        "HRManagerPassword": "test456",
-        "PricingPlan": "Yearly Plan"
-      },
-      { 
-        "name": "Hometown Donuts", 
-        "description": "Hometown Donuts is a popular donut chain in the Midwestern United States. Hometown Donuts currently owns and operates 10 bakeries and 200 restaurants throughout Iowa, Nebraska and Illinois.",
-        "size": 5000,
-        "HRManager": "Susan Fields",
-        "HRManagerEmail": "susan.fields@hometowndonuts.com",
-        "HRManagerPassword": "test789",
-        "PricingPlan": "6 Month Plan"
-      },
-      {
-        
-        "name": "Lockheed Martin", 
-        "description": "Lockheed Martin Corporation is an American aerospace, arms, defense, information security, and technology corporation with worldwide interests.",
-        "size": "114000",
-        "HRManager": "Greg A. Karol",
-        "HRManagerEmail": "jim.karol@lockheedmartin.com",
-        "HRManagerPassword": "test1011",
-        "PricingPlan": "Yearly Plan"
-      },
-      {
-        
-        "name": "PepsiCo", 
-        "description": "PepsiCo, Inc. is an American multinational food, snack, and beverage corporation headquartered in Harrison, New York, in the hamlet of Purchase.",
-        "size": 309000,
-        "HRManager": "Jaclyn Johnson",
-        "HRManagerEmail": "jaclyn.johnson@pepsico.com",
-        "HRManagerPassword": "test1213",
-        "PricingPlan": "Yearly Plan"
-      },
-      {
-        
-        "name": "Pagliacci Pizza", 
-        "description": "Pagliacci Pizza is a Seattle-based restaurant chain. The first Pagliacci Pizza location opened on February 19, 1979, at 4529 University Ave NE in Seattle's University District.",
-        "size": 1000,
-        "HRManager": "Adele Maxwell",
-        "HRManagerEmail": "adele.maxwell@pagliacci.com",
-        "HRManagerPassword": "test1415",
-        "PricingPlan": "Yearly Plan"
-      },
-      {
-        
-        "name": "Nordstrom", 
-        "description": "Nordstrom, Inc. is an American luxury department store chain headquartered in Seattle, Washington and founded by John W. Nordstrom and Carl F. Wallin in 1901.",
-        "size": 74000,
-        "HRManager": "Farrell Redwine",
-        "HRManagerEmail": "farrell.redwine@nordstrom.com",
-        "HRManagerPassword": "test1617",
-        "PricingPlan": "Yearly Plan"
-      },
-      {
-        
-        "name": "Mod Pizza", 
-        "description": "MOD Pizza is a fast casual pizza restaurant chain based in the United States. Founded in Seattle, Washington, in 2008, MOD has more than 500 locations as of May 2021 in the United States and Canada. ",
-        "size": 2000,
-        "HRManager": "Dayna Eberhardt",
-        "HRManagerEmail":"Dayna.eberhardt@modpizza.com",
-        "HRManagerPassword": "test1819",
-        "PricingPlan": "6 Month Plan"
-      }
-  ]
+  {
+    "property": "62a28321fa96df93c6644f3b",
+    "consumption_amount": 750,
+    "consumption_price": 60,
+    "discount": "Yes",
+    "discount_amount": "20% off per month",
+    "bill_date": "06/10/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3b",
+    "consumption_amount": 900,
+    "consumption_price": 80,
+    "discount": "No Discount",
+    "bill_date": "06/10/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3b",
+    "consumption_amount": 700,
+    "consumption_price": 55,
+    "discount": "No Discount",
+    "bill_date": "06/10/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3b",
+    "consumption_amount": 1000,
+    "consumption_price": 100,
+    "discount": "10% Off Per Month",
+    "bill_date": "06/10/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3b",
+    "consumption_amount": 700,
+    "consumption_price": 55,
+    "discount": "No Discount",
+    "bill_date": "06/10/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3b",
+    "consumption_amount": 975,
+    "consumption_price": 95,
+    "discount": "No Discount",
+    "bill_date": "06/10/2022"
+  }
+]

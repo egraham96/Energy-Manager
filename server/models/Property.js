@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PropertySchema = new Schema({
+     __v: { 
+         type: Number, 
+         select: false,
+    },
+
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"

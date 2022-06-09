@@ -2,15 +2,13 @@
   {
     "name":"Newell Court Apartments",
     "address": "3011 78th Ave SE, Mercer Island, WA, 98040",
-    "membership_start": "12/01/2020",
-    "units": []
+    "membership_start": "12/01/2020"
 
   },
   {
     "name":"Cubix North Park",
     "address": "1008 N 109th St, Seattle, WA, 98133",
-    "membership_start": "10/13/2019",
-    "units": []
+    "membership_start": "10/13/2019"
 
   },
   {
@@ -21,8 +19,7 @@
   {
     "name":"Husky Court Apartments",
     "address": "4629 21st Ave NE # B100, Seattle, WA",
-    "membership_start": "01/01/2018",
-    "units": []
+    "membership_start": "01/01/2018"
 
   }
 ]
