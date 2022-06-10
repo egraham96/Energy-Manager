@@ -4,7 +4,7 @@
     "consumption_amount": 750,
     "consumption_price": 60,
     "discount": "Yes",
-    "discount_amount": "20% off per month",
+    "discount_amount": "20% Off Per Month",
     "bill_date": "06/10/2022"
   },
   {
@@ -41,5 +41,54 @@
     "consumption_price": 95,
     "discount": "No Discount",
     "bill_date": "06/10/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3d",
+    "consumption_amount": 1200,
+    "consumption_price": 150,
+    "bill_date": "05/10/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3e",
+    "consumption_amount": 750,
+    "consumption_price": 60,
+    "discount": "Yes",
+    "discount_amount": "20% Off Per Month",
+    "bill_date": "06/01/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3e",
+    "consumption_amount": 700,
+    "consumption_price": 55,
+    "discount": "20% Off Per Month",
+    "bill_date": "06/01/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3e",
+    "consumption_amount": 700,
+    "consumption_price": 55,
+    "discount": "20% Off Per Month",
+    "bill_date": "06/01/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3e",
+    "consumption_amount": 700,
+    "consumption_price": 55,
+    "discount": "20% Off Per Month",
+    "bill_date": "06/01/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3e",
+    "consumption_amount": 700,
+    "consumption_price": 55,
+    "discount": "20% Off Per Month",
+    "bill_date": "06/01/2022"
+  },
+  {
+    "property": "62a28321fa96df93c6644f3e",
+    "consumption_amount": 700,
+    "consumption_price": 55,
+    "discount": "20% Off Per Month",
+    "bill_date": "06/01/2022"
   }
 ]
