@@ -14,7 +14,7 @@
           alt="user avatar"
         />
         <div class="header-side">
-          <p class="username">{{ user.username }}</p>
+          <p class="name">{{ user.first_name }} + {{user.last_name}}</p>
           <p class="email">{{ user.email }}</p>
           <div @click="goSettings" class="link">Settings</div>
         </div>
@@ -92,13 +92,13 @@ export default {
   flex-direction: column;
   gap: 5px;
 }
-.username,
+.name,
 .email,
 .link {
   margin: 0;
   font-size: 0.8rem;
 }
-.username {
+.name {
   font-weight: 500;
 }
 .email {

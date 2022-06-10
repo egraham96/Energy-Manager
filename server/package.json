@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "node server/app.js",
+    "dev": "node server/app.js",
     "watch": "nodemon app.js",
     "seed": "node seeders/seed.js"
   },
   "author": "Emma Graham",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",

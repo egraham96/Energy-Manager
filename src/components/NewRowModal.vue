@@ -11,7 +11,7 @@
           v-model="newRow[item.column_name]"
           v-if="!(item.column_name === 'id' || item.column_name === 'unit_id')"
           :id="item.column_name"
-          :type="setInputType(item.data_type)"
+          :type="item.column_name"
           required
         />
       </div>
@@ -55,8 +55,8 @@ export default {
   methods: {
     ...mapMutations(["SET_MODAL"]),
     ...mapActions([
-      "createNewProperty",
-      "createNewUnit",
+      "createProperty",
+      "createUnit",
     ]),
     setInputType(val) {
       return val === "text"
@@ -69,9 +69,9 @@ export default {
     },
     createNewData() {
       if (this.modal.name === "properties") {
-        this.createNewProperty(this.newRow);
+        this.createProperty(this.newRow);
       } else {
-        this.createNewUnit(this.newRow);
+        this.createUnit(this.newRow);
       }
       this.SET_MODAL({
         isOpen: false,
@@ -102,14 +102,6 @@ export default {
         tempObject.membership_start.getDate() + 1
       );
       tempObject.membership_start = tempObject.membership_start
-        .toISOString()
-        .split("T")[0];
-
-      tempObject.membership_end = new Date(tempObject.membership_end);
-      tempObject.membership_end.setDate(
-        tempObject.membership_end.getDate() + 1
-      );
-      tempObject.membership_end = tempObject.membership_end
         .toISOString()
         .split("T")[0];
       this.newRow = { ...tempObject };

@@ -140,6 +140,14 @@ export default new Vuex.Store({
         })
         .catch((err) => console.log(err));
     },
+    getPropertyUnits(context, payload) {
+      httpClient
+        .get(`/units/all/${payload.property_id}`)
+        .then((res) => {
+          context.commit("SET_UNITS", res.data);
+        })
+        .catch((err) => console.log(err));
+    },
     deleteUnitById(context, payload) {
       httpClient
         .delete(`/units/${payload.unit_id}`)
@@ -190,10 +198,8 @@ export default new Vuex.Store({
         .post(`/${context.state.columnModal.table}/column/new`, payload)
         .then(() => {
           if (context.state.columnModal.table === "properties") {
-            context.dispatch("getPropertyDataType");
             context.dispatch("getAllProperties");
           } else {
-            context.dispatch("getUnitDataType");
             context.dispatch(
               "getPropertyUnits",
               context.state.units[0].property_id

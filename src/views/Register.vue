@@ -3,30 +3,52 @@
     <form @submit.prevent="submit">
       <h3></h3>
 
-      <label for="username">Username</label>
+
+      
+      <label for="first_name">First Name</label>
       <input
         :class="{
-          errorborder: $v.user.username.$error,
+          errorborder: $v.user.first_name.$error,
         }"
-        v-model.trim="$v.user.username.$model"
+        v-model.trim="$v.user.first_name.$model"
         type="text"
-        placeholder="Username"
-        id="username"
+        placeholder="First Name"
+        id="First Name"
       />
       <div
         class="error-message"
-        v-if="!$v.user.username.required && $v.user.username.$dirty"
+        v-if="!$v.user.first_name.required && $v.user.first_name.$dirty"
       >
-        Username is required
+        First Name Is Required
       </div>
-      <div class="error-message" v-if="!$v.user.username.minLength">
-        Username must have at least
-        {{ $v.user.username.$params.minLength.min }} letters.
-      </div>
-      <div class="error-message" v-if="!$v.user.username.alpha">
-        Username must contain only letters
+      <div class="error-message" v-if="!$v.user.first_name.alpha">
+        First Name Must Contain Only Letters
       </div>
 
+
+      
+      <label for="last_name">Last Name</label>
+      <input
+        :class="{
+          errorborder: $v.user.last_name.$error,
+        }"
+        v-model.trim="$v.user.last_name.$model"
+        type="text"
+        placeholder="Last Name"
+        id="Last Name"
+      />
+      <div
+        class="error-message"
+        v-if="!$v.user.last_name.required && $v.user.last_name.$dirty"
+      >
+        Last Name Is Required
+      </div>
+      <div class="error-message" v-if="!$v.user.last_name.alpha">
+        Last Name Must Contain Only Letters
+      </div>
+
+
+    
       <label for="email">Email</label>
       <input
         :class="{
@@ -41,12 +63,13 @@
         class="error-message"
         v-if="!$v.user.email.required && $v.user.email.$dirty"
       >
-        Email is required
+        Email Is Required
       </div>
       <div class="error-message" v-if="!$v.user.email.email">
-        Please enter a valid email
+        Please Enter A Valid Email
       </div>
 
+      
       <label for="password">Password</label>
       <input
         :class="{
@@ -61,7 +84,7 @@
         class="error-message"
         v-if="!$v.user.password.required && $v.user.password.$dirty"
       >
-        Password is required
+        Password Is Required
       </div>
       <div
         class="error-message"
@@ -78,11 +101,14 @@
           name="role"
           id="role"
         >
-          <option value="user">User</option>
-          <option value="admin">Admin</option>
+          <option value="Property Manager">Property Manager</option>
+          <option value="Property Owner">Property Owner</option>
         </select>
       </label>
-
+      <div
+        class="error-message" v-if="!$v.user.role.required && $v.user.role.$dirty">
+        Role Is Required
+      </div>
       <button type="submit">Register</button>
     </form>
   </div>
@@ -98,10 +124,11 @@ export default {
   data() {
     return {
       user: {
-        username: null,
+        first_name: null,
+        last_name: null,
         email: null,
         password: null,
-        role: "user",
+        role: null,
       },
     };
   },

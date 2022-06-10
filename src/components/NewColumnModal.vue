@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <div class="column-container">
     <div class="new-column-modal">
       <h3>Add New Column</h3>
@@ -93,3 +93,4 @@ label {
   margin-top: 30px;
 }
 </style>
+-->

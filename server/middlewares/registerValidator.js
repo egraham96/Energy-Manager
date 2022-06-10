@@ -2,7 +2,7 @@ const { body, validationResult } = require("express-validator");
 
 const registerValidator = async (req, res, next) => {
   const validations = [
-    body("email").isEmail().withMessage("Please enter a valid email adress"),
+    body("email").isEmail().withMessage("Please Enter A Valid Email Address"),
     body("password")
       .isStrongPassword({
         minLength: 8,
@@ -11,7 +11,7 @@ const registerValidator = async (req, res, next) => {
         minNumbers: 1,
         minSymbols: 0,
       })
-      .withMessage("min. 8 chars, min. 1 uppercase, min. 1 number"),
+      .withMessage("Minimum 8 Characters, Minimum 1 Uppercase, Minimum 1 Number"),
   ];
 
   for (let validation of validations) {

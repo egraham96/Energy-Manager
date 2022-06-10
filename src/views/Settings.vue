@@ -2,8 +2,12 @@
   <div v-if="user" class="settings">
     <h3>User Information</h3>
     <div class="input-field">
-      <label for="username">Username</label>
-      <div class="user-info" id="username">{{ user.username }}</div>
+      <label for="first_name">First Name</label>
+      <div class="user-info" id="first_name">{{ user.first_name }}</div>
+    </div>
+    <div class="input-field">
+      <label for="last_name">Last Name</label>
+      <div class="user-info" id="last_name">{{ user.last_name }}</div>
     </div>
     <div class="input-field">
       <label for="email">Email</label>

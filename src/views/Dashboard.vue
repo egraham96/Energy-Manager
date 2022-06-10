@@ -1,12 +1,11 @@
 <template>
   <div v-if="user" class="dashboard">
     <div
-      v-if="properties && properties.length > 0 && propertyDataType"
+      v-if="properties && properties.length > 0"
       class="property-table-container"
     >
       <h3 class="text-center">Properties</h3>
       <button
-        v-if="user.role === 'admin'"
         @click="openNewColumnModal('properties')"
         class="btn btn-primary d-block ms-auto"
       >
@@ -45,7 +44,7 @@
             @click="getPropertyUnits(property.id)"
           >
             <td v-for="(item, index) in property" :key="index">{{ item }}</td>
-            <td class="icon-container" v-if="user.role === 'admin'">
+            <td class="icon-container">
               <span
                 ><svg
                   @click="editData(propertyDataType, 'properties', property)"
@@ -197,8 +196,6 @@ export default {
       "user",
       "properties",
       "units",
-      "unitDataType",
-      "propertyDataType",
     ]),
     propertyColumnNames() {
       let newArr = [...this.propertyDataType];

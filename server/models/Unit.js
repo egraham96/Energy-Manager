@@ -9,6 +9,7 @@ const UnitSchema = new Schema({
     property: {
         type: Schema.Types.ObjectId,
         ref: "Property",
+        required:true
       },
     consumption_amount: {
         type: String,
