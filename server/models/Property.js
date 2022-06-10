@@ -25,10 +25,10 @@ const PropertySchema = new Schema({
         type: String,
         required: true,
     },
-    units: {
-        type: Schema.Types.ObjectId,
-        ref: "Unit",
-      },
+    units: [{
+        type:Schema.Types.ObjectId,
+        ref: "Unit"
+    }]
 });
 
 const Property = mongoose.model('Property', PropertySchema);

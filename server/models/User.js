@@ -30,10 +30,12 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  properties: {
+  properties: [
+   {
     type: Schema.Types.ObjectId,
-    ref: "Property",
-  },
+    ref: "Property"
+   }
+]
 });
 
 

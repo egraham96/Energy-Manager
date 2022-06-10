@@ -5,7 +5,7 @@
     "role": "Property Manager",
     "email": "erica.brown@aol.com",
     "password": "test123",
-    "properties": "62a28dddb47ac8a01007354f"
+    "properties": ["62a28dddb47ac8a01007354f"]
 
   },
   {
@@ -14,7 +14,7 @@
     "role": "Property Owner",
     "email": "todd.craines@hotmail.com",
     "password": "test456",
-    "properties": "62a28dddb47ac8a010073550"
+    "properties": ["62a28dddb47ac8a010073550"]
 
   },
   {
@@ -23,7 +23,7 @@
     "role": "Property Manager",
     "email": "emma.graham@hotmail.com",
     "password": "test789",
-    "properties": "62a28dddb47ac8a01007354e"
+    "properties": ["62a28dddb47ac8a01007354e"]
 
   },
   {
@@ -32,7 +32,7 @@
     "role": "Property Manager",
     "email": "jon.howard@nwrealty.com",
     "password": "test101112",
-    "properties": "62a28dddb47ac8a010073551"
+    "properties": ["62a28dddb47ac8a010073551"]
 
   }
 ]
