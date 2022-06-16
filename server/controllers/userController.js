@@ -1,11 +1,13 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const axios= require("axios")
 
 const register = async (req, res) => {
   console.log("hi")
-  try {
-    const { first_name, last_name, role, email, password } = req.body;
+  try { let response= await axios.get("https://jsonplaceholder.typicode.com/posts")
+  console.log(response)
+    /*const { first_name, last_name, role, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
 
@@ -41,7 +43,7 @@ const register = async (req, res) => {
         role: user.role,
         token: token,
       });
-    }
+    }*/
   } catch (err) {
     console.log(err)
   }

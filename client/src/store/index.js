@@ -51,7 +51,7 @@ export default new Vuex.Store({
       return httpClient
         .post("/register", payload)
         .then((res) => {
-          console.log("pee")
+          console.log("inside actions register")
           console.log(res)
           context.commit("SET_USER", res.data);
           sessionStorage.setItem("user", JSON.stringify(res.data));

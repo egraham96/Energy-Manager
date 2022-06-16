@@ -141,7 +141,7 @@ export default {
       let isValid = this.checkFormValidation();
       console.log(`Inside Register.vue Submit Method. isValid= ${isValid}`)
       if (isValid) {
-        console.log("poop");
+        console.log("inside isValid");
         this.register(this.user).then(() => {
           this.$router.push({ name: "Dashboard" });
         });

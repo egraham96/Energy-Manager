@@ -2,13 +2,15 @@ import axios from "axios";
 import authHeader from "./authHeader";
 
 const httpClient = axios.create({
-  baseURL: "https://localhost:3020",
+  baseURL: "https://jsonplaceholder.typicode.com",
   headers: {
     Accept: "application/json",
   },
-});
+}
+);
 
 const requestHandler = (request) => {
+  console.log("juju")
   request.headers["x-access-token"] = authHeader();
   return request;
 };
