@@ -2,6 +2,7 @@ const Property = require("../models/Property");
 const Unit = require("../models/Unit");
 
 const getAllUnitsByPropertyId = (req, res) => {
+  console.log("Inside getAllUnitsByPropertyId inside unitController")
   const id = parseInt(req.params.id);
   Property.findOne(id)
     .populate("units")
@@ -15,6 +16,7 @@ const getAllUnitsByPropertyId = (req, res) => {
 
 //How do I create a new unit then refresh the property model to reflect that a new Unit has been added
 const createUnit = (req, res) => {
+  console.log("Inside createUnit inside unitController")
   const data = req.body;
   Unit.create(data)
     .then((payload) => {
@@ -27,6 +29,7 @@ const createUnit = (req, res) => {
 
 //How do I delete all the units then refresh the property model to reflect that the units have been deleted?
 const deleteAllUnitsByPropertyId = (req, res) => {
+  console.log("Inside deleteAllUnitsByPropertyId inside unitController")
   const id = parseInt(req.params.id);
   //const toDelete = Unit.find({ property: id });
   Unit.deleteMany(
@@ -43,6 +46,7 @@ const deleteAllUnitsByPropertyId = (req, res) => {
 
 //How do I delete the unit then refresh the property model to delete that Unit from array of Units
 const deleteByUnitId = (req, res) => {
+  console.log("Inside deleteByUnitId inside unitController")
   const id = parseInt(req.params.id);
   Unit.findOneAndDelete(
     { property: id },

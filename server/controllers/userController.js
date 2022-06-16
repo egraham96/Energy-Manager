@@ -92,6 +92,7 @@ const login = async (req, res) => {
 };
 
 const verify = (req, res) => {
+  console.log("Inside verify within userController")
   res.status(200).send("Token is Valid!");
 };
 

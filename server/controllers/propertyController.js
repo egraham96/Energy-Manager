@@ -2,6 +2,7 @@ const { Property } = require("../models/");
 
 
 const getByPropertyId = (req, res) => {
+  console.log("Inside getByPropertyId inside propertyController")
   const id = parseInt(req.params.id);
   Property.findOne(id)
     .populate("units")
@@ -14,10 +15,13 @@ const getByPropertyId = (req, res) => {
 };
 
 const getByUserId = (req, res) => {
-  const id = parseInt(req.params.id);
-  Property.findAll({ user: id })
+  console.log("Inside getByUserId inside propertyController")
+  const id = req.user.id
+  console.log(id)
+  Property.find({ user:id })
     .populate("units")
     .then((payload) => {
+      console.log(payload)
       res.json(payload);
     })
     .catch((err) => {
@@ -28,6 +32,7 @@ const getByUserId = (req, res) => {
 //Cascade
 //How do I delete the Property then refresh the property model to reflect that the units have been deleted?
 const deleteByPropertyId = (req, res) => {
+  console.log("Inside deleteByPropertyId inside propertyController")
   const id = parseInt(req.params.id);
   Property.findOneandDelete(
     { _id: id },
@@ -43,6 +48,7 @@ const deleteByPropertyId = (req, res) => {
 };
 
 const createProperty = (req, res) => {
+  console.log("Inside createProperty inside propertyController")
   const data = req.body;
   Property.create(data)
     .then((payload) => {
