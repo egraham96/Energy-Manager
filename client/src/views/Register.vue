@@ -84,7 +84,7 @@
         class="error-message"
         v-if="!$v.user.password.required && $v.user.password.$dirty"
       >
-        Password Is Required
+        Password is required
       </div>
       <div
         class="error-message"
@@ -106,7 +106,9 @@
         </select>
       </label>
       <div
-        class="error-message" v-if="!$v.user.role.required && $v.user.role.$dirty">
+        class="error-message"
+        v-if="!$v.user.role.required && $v.user.role.$dirty"
+      >
         Role Is Required
       </div>
       <button type="submit">Register</button>
@@ -124,11 +126,11 @@ export default {
   data() {
     return {
       user: {
-        first_name: null,
-        last_name: null,
-        email: null,
-        password: null,
-        role: null,
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        role: '',
       },
     };
   },
@@ -137,7 +139,9 @@ export default {
     ...mapActions(["register"]),
     submit() {
       let isValid = this.checkFormValidation();
+      console.log(`Inside Register.vue Submit Method. isValid= ${isValid}`)
       if (isValid) {
+        console.log("poop");
         this.register(this.user).then(() => {
           this.$router.push({ name: "Dashboard" });
         });

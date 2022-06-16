@@ -10,13 +10,14 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-console.log(db)
 
 //API Routes
 app.use("/", routes);
 
 const PORT = process.env.PORT || 3020;
 
+db.once("open", () => {
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 )
+})

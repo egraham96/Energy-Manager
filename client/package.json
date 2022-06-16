@@ -1,10 +1,9 @@
 {
-  "name": "energy-manager",
+  "name": "energy-manager-frontend",
   "version": "0.1.0",
+  "description": "This is the Frontend for the Energy Manager Application",
   "private": true,
   "scripts": {
-    "start": "node server/app.js",
-    "dev": "node server/app.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
@@ -51,7 +50,6 @@
     "last 2 versions",
     "not dead"
   ],
-  "description": "",
   "main": "babel.config.js",
   "repository": {
     "type": "git",

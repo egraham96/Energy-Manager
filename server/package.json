@@ -1,13 +1,10 @@
 {
-  "name": "energy-manager-server",
+  "name": "energy-manager-backend",
   "version": "1.0.0",
-  "description": "This is an API for the Energy Manager made with MongoDB",
+  "description": "This is the Backend for the Energy Manager Application",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/app.js",
-    "dev": "node server/app.js",
-    "watch": "nodemon app.js",
+    "start": "nodemon app.js",
     "seed": "node seeders/seed.js"
   },
   "author": "Emma Graham",

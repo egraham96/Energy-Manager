@@ -1,7 +1,9 @@
 import { alpha, required, email } from "vuelidate/lib/validators";
 
 const checkPassword = (val) => {
-  let reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+  let reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+  //console.log("inside reg test")
+  //console.log(reg.test(val))
   return reg.test(val);
 };
 

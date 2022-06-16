@@ -2,7 +2,7 @@ import axios from "axios";
 import authHeader from "./authHeader";
 
 const httpClient = axios.create({
-  baseURL: "https://energy-manager-2.herokuapp.com/",
+  baseURL: "https://localhost:3020",
   headers: {
     Accept: "application/json",
   },

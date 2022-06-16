@@ -14,7 +14,7 @@
           alt="user avatar"
         />
         <div class="header-side">
-          <p class="name">{{ user.first_name }} + {{user.last_name}}</p>
+          <p class="name">{{ user.first_name }} + {{ user.last_name }}</p>
           <p class="email">{{ user.email }}</p>
           <div @click="goSettings" class="link">Settings</div>
         </div>
