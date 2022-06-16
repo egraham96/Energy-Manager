@@ -65,8 +65,8 @@ export default {
   data() {
     return {
       user: {
-        email: null,
-        password: null,
+        email: '',
+        password: '',
       },
     };
   },
@@ -86,6 +86,7 @@ export default {
     ...mapMutations(["SET_REMEMBER"]),
     submit() {
       let isValid = this.checkFormValidation();
+      console.log(`Inside Login.vue Submit Method. isValid= ${isValid}`)
       if (isValid) {
         this.login(this.user)
           .then(() => {

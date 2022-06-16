@@ -47,11 +47,9 @@ export default new Vuex.Store({
   },
   actions: {
     register(context, payload) {
-      console.log("hey emma")
       return httpClient
         .post("/register", payload)
         .then((res) => {
-          console.log("inside actions register")
           console.log(res)
           context.commit("SET_USER", res.data);
           sessionStorage.setItem("user", JSON.stringify(res.data));
@@ -65,6 +63,7 @@ export default new Vuex.Store({
       return httpClient
         .post("/login", payload)
         .then((res) => {
+          console.log(res)
           context.commit("SET_USER", res.data);
           if (context.state.remember) {
             localStorage.setItem("user", JSON.stringify(res.data));

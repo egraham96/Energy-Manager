@@ -1,11 +1,10 @@
 export default {
   methods: {
     checkFormValidation() {
-      console.log("submit")
+      console.log("Inside checkFormValidation")
       this.$v.$touch()
       if (/*this.$v.$dirty &&*/ !this.$v.$invalid) {
         console.log(this.user)
-        console.log("true")
         return true;
       } else {
         this.$v.$touch();

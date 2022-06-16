@@ -1,10 +1,10 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const axios= require("axios")
+
 
 const register = async (req, res) => {
-  console.log("hi register")
+  console.log("Inside User Register Controller")
   
   try { 
     const { first_name, last_name, role, email, password } = req.body;
@@ -50,6 +50,7 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  console.log("Inside User Login Controller")
   try {
     const { email, password } = req.body;
 
@@ -65,9 +66,8 @@ const login = async (req, res) => {
             last_name: user.last_name,
             email: user.email,
             role: user.role,
-            token: token,
           },
-          process.env.TOKEN_KEY,
+          `${process.env.TOKEN_KEY}`,
           {
             expiresIn: "1h",
           }
@@ -84,7 +84,7 @@ const login = async (req, res) => {
         res.status(400).send("Incorrect Password");
       }
     } else {
-      res.status(400).send("Please check your email address");
+      res.status(400).send("Please Check Your Email Address");
     }
   } catch (err) {
     console.log(err);
@@ -92,7 +92,7 @@ const login = async (req, res) => {
 };
 
 const verify = (req, res) => {
-  res.status(200).send("Token is valid");
+  res.status(200).send("Token is Valid!");
 };
 
 module.exports = { register, login, verify };

@@ -2,7 +2,7 @@ import axios from "axios";
 import authHeader from "./authHeader";
 
 const httpClient = axios.create({
-  baseURL: "http://energy-manager-2.herokuapp.com",
+  baseURL: "http://localhost:3020",
   headers: {
     Accept: "application/json",
   },
@@ -10,7 +10,7 @@ const httpClient = axios.create({
 );
 
 const requestHandler = (request) => {
-  console.log("juju")
+  console.log("Inside Http Client Request Handler")
   request.headers["x-access-token"] = authHeader();
   return request;
 };
