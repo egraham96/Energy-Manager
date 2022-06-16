@@ -4,10 +4,10 @@ const jwt = require("jsonwebtoken");
 const axios= require("axios")
 
 const register = async (req, res) => {
-  console.log("hi")
-  try { let response= await axios.get("https://jsonplaceholder.typicode.com/posts")
-  console.log(response)
-    /*const { first_name, last_name, role, email, password } = req.body;
+  console.log("hi register")
+  
+  try { 
+    const { first_name, last_name, role, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
 
@@ -25,8 +25,8 @@ const register = async (req, res) => {
       });
 
       const token = jwt.sign(
-        { first_name, last_name, role, email },
-        process.env.TOKEN_KEY,
+        {  first_name, last_name, role, email },
+        `${process.env.TOKEN_KEY}`,
         {
           expiresIn: "1h",
         }
@@ -43,7 +43,7 @@ const register = async (req, res) => {
         role: user.role,
         token: token,
       });
-    }*/
+    }
   } catch (err) {
     console.log(err)
   }
