@@ -1,4 +1,5 @@
 const { Property } = require("../models/");
+const { User } = require("../models/");
 
 
 const getByPropertyId = (req, res) => {
@@ -18,8 +19,9 @@ const getByUserId = (req, res) => {
   console.log("Inside getByUserId inside propertyController")
   const id = req.user.id
   console.log(id)
-  Property.find({ user:id })
-    .populate("units")
+  User.findById({ _id: id })
+    .populate("Property")
+    //.populate("Unit")
     .then((payload) => {
       console.log(payload)
       res.json(payload);

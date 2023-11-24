@@ -36,7 +36,7 @@ npm run lint
 * [Link to GitHub Repo](https://github.com/egraham96/Energy-Manager)
 
 ## Preview of Working Site:
-![Screenshot of Deployed Application](./public/images/ScreenshotofDeployedApplication.PNG)
+![Screenshot of Deployed Application](./src/assets/EnergyManager.PNG)
 
 ## How to Contribute:
 If you'd like to contribute to this project please send an email to eeg4@uw.edu.

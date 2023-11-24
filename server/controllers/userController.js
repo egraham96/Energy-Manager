@@ -14,14 +14,14 @@ const register = async (req, res) => {
     if (userExists) {
       res.status(400).send("User Already Exist. Please Login");
     } else {
-      const encryptedPassword = await bcrypt.hash(password, 10);
+      //const encryptedPassword = await bcrypt.hash(password, 10);
 
       const user = new User({
         first_name,
         last_name,
         role,
         email,
-        password: encryptedPassword,
+        password//: encryptedPassword,
       });
 
       const token = jwt.sign(

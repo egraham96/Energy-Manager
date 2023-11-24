@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require("bcryptjs");
 
 const UserSchema = new Schema({
 
@@ -30,6 +31,17 @@ const UserSchema = new Schema({
     ref: "Property"
    }
 ]
+});
+
+// set up pre-save middleware to create password:
+
+UserSchema.pre('save', async function(next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
 });
 
 
